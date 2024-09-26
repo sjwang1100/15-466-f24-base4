@@ -1,0 +1,38 @@
+Officer Gray: "Thirty years... same table, same meal. Some things never change, huh?"
+Detective: "Old habits die hard."
+Officer Gray: "Still got eight Xiao Long Bao, just like always. Knew I’d find you here."
+Detective: "You know me, Gray. Some things stay the same... even when everything else changes."
+Officer Gray: "It’s been a long time. Too long."
+Detective: "Yeah. It has."
+Officer Gray: "I should’ve called... but after everything that went down, I didn’t think you’d want to hear from me."
+Detective: "What do you need, Gray?"
+Officer Gray: "It's Veikko. We had him in protective custody, but a few days ago, the UEC found out about our location. They raided the safehouse... took him."
+Detective: "Veikko... after all that happened last time? You know how much we lost getting him under wraps. People died for that, Gray. Some of us lost more than just careers."
+Officer Gray: "I haven’t forgotten. Not for a second. We paid a price, and I should’ve had your back more than I did back then. But this isn’t just about the department or the politics... this is bigger. You know what Veikko is capable of in the wrong hands. The world’s at risk, and you're the only one who can find him."
+Officer Jenkins: "Detective, Officer Gray’s told me everything you did back then. You’re a legend in the department. If anyone can bring him back, it’s you."
+Officer Gray: (sigh) "Let me cover your meal. For old times’ sake."
+# Choice 1: Accept it
+# Choice 2: “I will pay”
+#Choice 2: “This is probably the end of our friendship, but I can’t see another life vanish in front of my eyes.”
+# end
+# Choice 1:
+Detective: "Alright, Gray. You pay."
+Officer: “Thank you. I promise, we’ll get through this. Together.”
+Detective: “Starting in late summer of 1939, several political leaders in Goodland began to act strangely. During crucial election campaigns, they would suddenly lose the ability to finish their sentences. They could start speaking, but right before an important word, their voices would cut off. Then, they would start over, repeating the same incomplete sentence, stuck in a loop. It was as if the word they were about to say vanished from their minds. No physical cause was found, and even the best medical examinations showed nothing wrong. This strange affliction forced several leaders to step down, causing a political crisis that eventually led to the World War.”
+Detective: “After the downfall of four politicians, we identified the cause: Veikko. He was an experimental creation of the Evil State, now known as the United Evil Countries. They used him to disrupt Goodland by making these key words disappear, scattering them into other dimensions. The words didn’t just vanish; they were mixed with countless others, like tossing a red ball into a bucket full of colored balls. The affected leaders were left grasping for what they couldn’t find, endlessly repeating their unfinished thoughts. The only way to break the cycle was to recover the exact missing word.”
+Detective: “The Goodland government assigned us to capture Veikko from the Evil State. That operation… (sigh) that’s when I lost my partner and decided to leave the department.”
+# Scene 2
+Detective: “ I can’t believe after 40 years, I need to deal with Veikko and UEC again. After all these years, I don’t think Veikko lost that tragic ability, or else UEC has no point to get him.”
+Detective: “Let’s see if Veikko left any hint”
+Detective: “I need to get  _____”
+# Choice 1: Newspaper
+# Choice 2: Computer
+# Choice 3: Cell phone
+# Choice 2: 
+“Veikko died in 1989”
+# end
+# Choice 3:
+“I have never imagined a tiny block can use to see people from another tip of Earth”
+# end
+# Choice 1:
+“I need to get newspaper, let’s see what we have today.”
