@@ -1,0 +1,1 @@
+"E:\SteamLibrary\steamapps\common\Blender\blender.exe" --background --python export-meshes.py -- bao.blend:Collection bao.pnct

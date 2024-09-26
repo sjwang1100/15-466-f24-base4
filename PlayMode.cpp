@@ -21,6 +21,8 @@
 #include <iostream>
 #include <fstream>
 
+// NOTE: most of the FT and harfbuzz (text rendering) related codes are assisted by ChatGPT, some referenced Sasha's note
+
 FT_Library ft;
 FT_Face face1;
 
@@ -48,10 +50,24 @@ bool isChoice = false;
 std::ifstream storyFile(data_path("storyline.txt"));
 
 
-GLuint hexapod_meshes_for_lit_color_texture_program = 0;
-Load< MeshBuffer > hexapod_meshes(LoadTagDefault, []() -> MeshBuffer const * {
-	MeshBuffer const *ret = new MeshBuffer(data_path("hexapod.pnct"));
-	hexapod_meshes_for_lit_color_texture_program = ret->make_vao_for_program(lit_color_texture_program->program);
+GLuint steam_meshes_for_lit_color_texture_program = 0;
+Load< MeshBuffer > steam_meshes(LoadTagDefault, []() -> MeshBuffer const * {
+	MeshBuffer const *ret = new MeshBuffer(data_path("steam.pnct"));
+	steam_meshes_for_lit_color_texture_program = ret->make_vao_for_program(lit_color_texture_program->program);
+	return ret;
+});
+
+GLuint table_meshes_for_lit_color_texture_program = 0;
+Load< MeshBuffer > table_meshes(LoadTagDefault, []() -> MeshBuffer const* {
+	MeshBuffer const* ret = new MeshBuffer(data_path("table.pnct"));
+	table_meshes_for_lit_color_texture_program = ret->make_vao_for_program(lit_color_texture_program->program);
+	return ret;
+});
+
+GLuint bao_meshes_for_lit_color_texture_program = 0;
+Load< MeshBuffer > bao_meshes(LoadTagDefault, []() -> MeshBuffer const* {
+	MeshBuffer const* ret = new MeshBuffer(data_path("bao.pnct"));
+	bao_meshes_for_lit_color_texture_program = ret->make_vao_for_program(lit_color_texture_program->program);
 	return ret;
 });
 
@@ -68,9 +84,40 @@ PlayMode::PlayMode() : scene(*hexapod_scene) {
 	//get pointer to camera for convenience:
 	if (scene.cameras.size() != 1) throw std::runtime_error("Expecting scene to have exactly one camera, but it has " + std::to_string(scene.cameras.size()));
 	camera = &scene.cameras.front();
-	camera->transform->position = glm::vec3(8.0f, 0.0f, 0.0f);
+	camera->transform->position = glm::vec3(6.0f, -0.5f, 0.0f);
+	camera->transform->rotation *= glm::angleAxis(
+		glm::radians(-15.0f),
+		glm::vec3(1.0f, 0.0f, 0.0f));
 
 	std::getline(storyFile, storyLine);
+
+	Mesh mesh = table_meshes->lookup("Cube.001");
+
+	auto newTrans = new Scene::Transform();
+	scene.drawables.emplace_back(newTrans);
+	Scene::Drawable& drawable = scene.drawables.back();
+
+	drawable.pipeline = lit_color_texture_program_pipeline;
+	drawable.pipeline.vao = table_meshes_for_lit_color_texture_program;
+
+	drawable.pipeline.type = mesh.type;
+	drawable.pipeline.start = mesh.start;
+	drawable.pipeline.count = mesh.count;
+	drawable.transform->position = glm::vec3(1.2f, 0.0f, -1.5f);
+
+	/*mesh = steam_meshes->lookup("Cylinder");
+
+	newTrans = new Scene::Transform();
+	scene.drawables.emplace_back(newTrans);
+	drawable = scene.drawables.back();
+
+	drawable.pipeline = lit_color_texture_program_pipeline;
+	drawable.pipeline.vao = steam_meshes_for_lit_color_texture_program;
+
+	drawable.pipeline.type = mesh.type;
+	drawable.pipeline.start = mesh.start;
+	drawable.pipeline.count = mesh.count;
+	drawable.transform->position = glm::vec3(1.2f, 0.0f, 1.5f);*/
 
 	//if (FT_Init_FreeType(&ft)) {
 	//	std::cerr << "Could not init FreeType Library" << std::endl;
