@@ -36,3 +36,4 @@ Detective: “I need to get  _____”
 # end
 # Choice 1:
 “I need to get newspaper, let’s see what we have today.”
+# Polished by ChatGPT
